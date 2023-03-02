@@ -51,3 +51,5 @@ The figure below gives the contour plot of the true target sampling distribution
 
 <!--![Laplace_1_contour](https://github.com/roxiesun/CCSGLD/blob/main/images/Rep1_Contour_LapCauStep10Sig032n100.png)-->
 <img src="/images/Rep1_Contour_LapCauStep10Sig032n100.png" width="90%" height="90%"/>
+
+The average bias of estimating the expected test function $E_\pi\varphi$ for CSGLD and CCSGLD is $0.137$ and $0.092$, respectively; and the average RMSE are $1.570$ and $1.519$, respectively. In that sense, CCSGLD performs slightly better than CSGLD under this setting. But a problem is that CCSGLD is more time-consuming than CSGLD: running a single replication of $8\times 10^5$ iterations takes around 2.5 hours.
