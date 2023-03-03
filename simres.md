@@ -1,4 +1,4 @@
-## Results of simulations of a simple unimodal distribution and the synthetic multi-modal distribution in the CSGLD paper
+## Simulation results for a simple unimodal distribution and the synthetic multi-modal distribution in the CSGLD paper
 ### 1. Simulation 1: a simple unimodal distribution with known energy density
 In this simulation, I used a simple bivariate normal distribution where the two elements are uncorrelated stand normal random variables to show that the density 
 estimates for the energy function produced by CCSGLD are not too worse than the histogram estimates given by CSGLD in terms of fitting the discretized ground truth. This particular distribution was considered for a 
