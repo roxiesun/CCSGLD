@@ -67,7 +67,7 @@ The figure below gives the contour plot of the true target sampling distribution
 
 Under setting (ii), the average bias of estimating the expected test function $E_\pi\varphi$ for CSGLD and CCSGLD is $0.129$ and $0.092$, respectively; and the average RMSE are $1.564$ and $1.519$, respectively. In that sense, CCSGLD performs slightly better than CSGLD under this setting. But a problem is that CCSGLD is more time-consuming than CSGLD: running a single replication of $8\times 10^5$ iterations takes around 2.5 hours.
 
-Finally, the figures below give the sampling history and contour plots under setting (ii) with a minibatch size of $n = 500$
+Finally, the figures below give the sampling history and contour plots under setting (ii) with a minibatch size of $n = 512$
 
 <!--![Laplace_2](https://github.com/roxiesun/CCSGLD/blob/main/images/Rep1_LapCauStepsize10Sigma032n500.gif)-->
 <img src="/images/Rep1_LapCauStepsize10Sigma032n500.gif" width="90%" height="90%"/>
@@ -75,3 +75,4 @@ Finally, the figures below give the sampling history and contour plots under set
 <!--![Laplace_2_contour](https://github.com/roxiesun/CCSGLD/blob/main/images/Rep1_Contour_LapCauStep10Sig032n500.png)-->
 <img src="/images/Rep1_Contour_LapCauStep10Sig032n500.png" width="90%" height="90%"/>
 
+The average absolute bias of estimating the expected test function across five replications becomes 0.076 and the average RMSE becomes 1.487. However, the excuting time increase correapondingly to around 9 hours for a single replication.
