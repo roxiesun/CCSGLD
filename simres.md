@@ -69,9 +69,9 @@ Under setting (ii), the average bias of estimating the expected test function $E
 
 Finally, the figures below give the sampling history and contour plots under setting (ii) with a minibatch size of $n = 500$
 
-<!--![Laplace_2](https://github.com/roxiesun/CCSGLD/blob/main/images/Rep1_LapCauStepsize10Sigma032n100.gif)-->
-<img src="/images/Rep1_LapCauStepsize10Sigma032n100.gif" width="90%" height="90%"/>
+<!--![Laplace_2](https://github.com/roxiesun/CCSGLD/blob/main/images/Rep1_LapCauStepsize10Sigma032n500.gif)-->
+<img src="/images/Rep1_LapCauStepsize10Sigma032n500.gif" width="90%" height="90%"/>
 
-<!--![Laplace_2_contour](https://github.com/roxiesun/CCSGLD/blob/main/images/Rep1_Contour_LapCauStep10Sig032n100.png)-->
-<img src="/images/Rep1_Contour_LapCauStep10Sig032n100.png" width="90%" height="90%"/>
+<!--![Laplace_2_contour](https://github.com/roxiesun/CCSGLD/blob/main/images/Rep1_Contour_LapCauStep10Sig032n500.png)-->
+<img src="/images/Rep1_Contour_LapCauStep10Sig032n500.png" width="90%" height="90%"/>
 
