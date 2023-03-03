@@ -51,7 +51,7 @@ The figure below gives the contour plot of the true target sampling distribution
 <!--![Normal_1_contour](https://github.com/roxiesun/CCSGLD/blob/main/images/Rep5_Contour_Nor2ndKStep10Sig032.png)-->
 <img src="/images/Rep5_Contour_Nor2ndKStep10Sig032.png" width="90%" height="90%"/>
 
-Under setting (i), the average bias of estimating the expected test function $E_\pi\varphi$ for CSGLD and CCSGLD is $0.087$ and $0.137$, respectively; and the average RMSE are $1.578$ and $1.570$, respectively. It appears that CCSGLD does not perform better, possibly because only $4 times 10^5$ was run for this setting due to time cost.
+Under setting (i), the average bias of estimating the expected test function $E_\pi\varphi$ for CSGLD and CCSGLD is $0.087$ and $0.137$, respectively; and the average RMSE are $1.578$ and $1.570$, respectively. It appears that CCSGLD does not perform better, possibly because only $4 \times 10^5$ was run for this setting due to time cost.
 
 **(Setting ii)**
 
@@ -66,3 +66,12 @@ The figure below gives the contour plot of the true target sampling distribution
 <img src="/images/Rep1_Contour_LapCauStep10Sig032n100.png" width="90%" height="90%"/>
 
 Under setting (ii), the average bias of estimating the expected test function $E_\pi\varphi$ for CSGLD and CCSGLD is $0.129$ and $0.092$, respectively; and the average RMSE are $1.564$ and $1.519$, respectively. In that sense, CCSGLD performs slightly better than CSGLD under this setting. But a problem is that CCSGLD is more time-consuming than CSGLD: running a single replication of $8\times 10^5$ iterations takes around 2.5 hours.
+
+Finally, the figures below give the sampling history and contour plots under setting (ii) with a minibatch size of $n = 500$
+
+<!--![Laplace_2](https://github.com/roxiesun/CCSGLD/blob/main/images/Rep1_LapCauStepsize10Sigma032n100.gif)-->
+<img src="/images/Rep1_LapCauStepsize10Sigma032n100.gif" width="90%" height="90%"/>
+
+<!--![Laplace_2_contour](https://github.com/roxiesun/CCSGLD/blob/main/images/Rep1_Contour_LapCauStep10Sig032n100.png)-->
+<img src="/images/Rep1_Contour_LapCauStep10Sig032n100.png" width="90%" height="90%"/>
+
