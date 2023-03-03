@@ -18,12 +18,12 @@ accounted for a rule of thumb in deconvolution kernel density estimation, that i
 $h^{(t)} = \sqrt{\min\left(\delta_t, 2(\hat{\sigma}^{(t)})^2\log n\right)}$, where $\delta_t = \frac{\rho\kappa}{\max(\kappa, t)}$ 
 with $\rho = 20$ and $\kappa = 1,000$.  Figures below shows the sampling history and the contour plot of the true sampling distribution and those of samples produced by CSGLD/CCSGLD. 
 
-(Sampling history)
+**(Sampling history)**
 
 <!--![simpleU](https://github.com/roxiesun/CCSGLD/blob/main/images/csgld_contour_0227SimpleULaplacestepsize10.gif)-->
 <img src="/images/csgld_contour_0227SimpleULaplacestepsize10.gif" width="90%" height="90%"/>
 
-(Contour)
+**(Contour)**
 
 <!--![simpleUContour](https://github.com/roxiesun/CCSGLD/blob/main/images/0227Contour_SimpleULaplaceStep10.png)-->
 <img src="/images//0227Contour_SimpleULaplaceStep10.png" width="90%" height="90%"/>
@@ -39,13 +39,21 @@ Now we aim at simulating from the distribution $\pi(\mathbf{x}) \propto \exp(-U(
 $$U(\mathbf{x}) = \sum_{i=1}^2\frac{x(i)^2 - 10\cos(1.2\pi x(i))}{3}$$
 and $\mathbf{x} = (x(1),x(2))$. The distribution contains nine important modes where the center one has the largest probability mass and the four on the corners have the smallest. I considered two setups to deal with the stochastic gradient noise by assuming (i) $\epsilon_k \overset{i.i.d}{\sim} N(0, 0.32^2)$ or (ii) $\epsilon_k \overset{i.i.d}{\sim} Laplace(0.32/\sqrt{2})$. A second-order kernel whose characteristic function has a compact and symmetric support was adopted for the former case while a Cauchy kernel was considered for the latter. The energy lattice/subregions and hyperparameters were set as in Simulation 1. I ran five replications under each setting.
 
-(Setting i）
+**(Setting i)**
+
 The figure below gives the sampling history and density estimates across iterations based on the fifth replication under setting (i) with super smooth normal stochastic gradient noise.
 
 <!--![Normal_1](https://github.com/roxiesun/CCSGLD/blob/main/images/Rep5_Nor2ndKStepsize10Sigma032n100.gif)-->
-<img src="/images/Rep5_Nor2ndKStepsize10Sigma032n100" width="90%" height="90%"/>
+<img src="/images/Rep5_Nor2ndKStepsize10Sigma032n100.gif" width="90%" height="90%"/>
 
-(Setting ii)
+The figure below gives the contour plot of the true target sampling distribution and those of samples produced by CSGLD/CCSGLD based on the fifth replication under setting (i) with super smooth normal stochastic gradient noise.
+
+<!--![Normal_1_contour](https://github.com/roxiesun/CCSGLD/blob/main/images/Rep5_Contour_Nor2ndKStep10Sig032.png)-->
+<img src="/images/Rep5_Contour_Nor2ndKStep10Sig032.png" width="90%" height="90%"/>
+
+Under setting (i), the average bias of estimating the expected test function $E_\pi\varphi$ for CSGLD and CCSGLD is $0.087$ and $0.137$, respectively; and the average RMSE are $1.578$ and $1.570$, respectively. It appears that CCSGLD does not perform better, possibly because only $4 times 10^5$ was run for this setting due to time cost.
+
+**(Setting ii)**
 
 The figure below gives the sampling history and density estimates across iterations based on the first replication under setting (ii) with ordinal smooth Laplace stochastic gradient noise.
 
@@ -57,4 +65,4 @@ The figure below gives the contour plot of the true target sampling distribution
 <!--![Laplace_1_contour](https://github.com/roxiesun/CCSGLD/blob/main/images/Rep1_Contour_LapCauStep10Sig032n100.png)-->
 <img src="/images/Rep1_Contour_LapCauStep10Sig032n100.png" width="90%" height="90%"/>
 
-Under setting (ii), the average bias of estimating the expected test function $E_\pi\varphi$ for CSGLD and CCSGLD is $0.137$ and $0.092$, respectively; and the average RMSE are $1.570$ and $1.519$, respectively. In that sense, CCSGLD performs slightly better than CSGLD under this setting. But a problem is that CCSGLD is more time-consuming than CSGLD: running a single replication of $8\times 10^5$ iterations takes around 2.5 hours.
+Under setting (ii), the average bias of estimating the expected test function $E_\pi\varphi$ for CSGLD and CCSGLD is $0.129$ and $0.092$, respectively; and the average RMSE are $1.564$ and $1.519$, respectively. In that sense, CCSGLD performs slightly better than CSGLD under this setting. But a problem is that CCSGLD is more time-consuming than CSGLD: running a single replication of $8\times 10^5$ iterations takes around 2.5 hours.
