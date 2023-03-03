@@ -75,4 +75,4 @@ Finally, the figures below give the sampling history and contour plots under set
 <!--![Laplace_2_contour](https://github.com/roxiesun/CCSGLD/blob/main/images/Rep1_Contour_LapCauStep10Sig032n500.png)-->
 <img src="/images/Rep1_Contour_LapCauStep10Sig032n500.png" width="90%" height="90%"/>
 
-The average absolute bias of estimating the expected test function across five replications becomes 0.076 and the average RMSE becomes 1.487. However, the excuting time increase correapondingly to around 9 hours for a single replication.
+The average absolute bias of estimating the expected test function across five replications becomes $0.076$ and the average RMSE becomes $1.487$. However, the excuting time increase correapondingly to around 9 hours for a single replication.
