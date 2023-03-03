@@ -1,8 +1,8 @@
-## Results of simulations of the synthetic multi-modal distribution in the CSGLD paper
+## Results of simulations of a simple unimodal distribution and the synthetic multi-modal distribution in the CSGLD paper
 ### 1. Simulation 1: a simple unimodal distribution with known energy density
 In this simulation, I used a simple bivariate normal distribution where the two elements are uncorrelated stand normal random variables to show that the density 
-estimates for the energy function produced by CCSGLD are not worse than the histogram estimates given by CSGLD. This particular distribution was considered for a 
-reason that the analytic form of the energy density can be derived apart from just a discrete version of ground truth (which is also the highest endeavor for the 
+estimates for the energy function produced by CCSGLD are not too worse than the histogram estimates given by CSGLD in terms of fitting the discretized ground truth. This particular distribution was considered for a 
+reason that the analytic form of the energy density can be derived apart from just the discrete version of ground truth (which is also the highest endeavor for the 
 histogram estimates achived by CSGLD). That is, with $\pi(\mathbf{x}) = \frac{1}{2\pi}\exp(-\frac{x(1)^2 + x(2)^2}{2})$ and $\mathbf{x} = (x(1), x(2))$, the energy 
 function
 $$U(\mathbf{x}) = \log(2\pi) + \frac{1}{2}(x(1)^2 + x(2)^2)$$
@@ -28,9 +28,6 @@ with $\rho = 20$ and $\kappa = 1,000$.  Figures below shows the sampling history
 <!--![simpleUContour](https://github.com/roxiesun/CCSGLD/blob/main/images/0227Contour_SimpleULaplaceStep10.png)-->
 <img src="/images//0227Contour_SimpleULaplaceStep10.png" width="90%" height="90%"/>
 
-<!--![ccmc6e5g245](https://github.com/roxiesun/ccmc/blob/main/images/ccmc6e5g245new.gif)-->
-<img src="/images/ccmc6e5g245new.gif" width="65%" height="65%"/>
-
 
 It seems that CCSGLD performs a bit worse in sampling from the target distribution or in estimating the energy density. But what I am trying to confirm through this simulation is that the discretized version of ground truth (the black curves in (c) and (d) of the first figure above ), which is the ground truth for the histogram density estimates of CSGLD, actually deviates from the true energy density (the blue curves in the first figure above). Hence for a more complex target distribution where the density function of  $U(\mathbf{x})$ has no analytic form, what we can plot is just the discretized ground truth, and I consider it reasonble if the energy density estimates of CCSGLD across iterations cannot fit the black curves better than the histogram estimates of CSGLD.
 
@@ -40,19 +37,22 @@ I also tried another measure of the sampling performace suggested by [Nemeth and
 ### 2. Simulation 2: the synthetic multi-modal distribution in [Deng et al. (2020)](https://proceedings.neurips.cc/paper/2020/hash/b5b8c484824d8a06f4f3d570bc420313-Abstract.html)
 Now we aim at simulating from the distribution $\pi(\mathbf{x}) \propto \exp(-U(\mathbf{x}))$ with
 $$U(\mathbf{x}) = \sum_{i=1}^2\frac{x(i)^2 - 10\cos(1.2\pi x(i))}{3}$$
-and $\mathbf{x} = (x(1),x(2))$. The distribution contains nine important modes where the center one has the largest probability mass and the four on the corners have the smallest. I considered two settings to deal with the stochastic gradient noise by assuming (i) $\epsilon_k \overset{i.i.d}{\sim} N(0, 0.32^2)$ and (ii) $\epsilon_k \overset{i.i.d}{\sim} Laplace(0.32/\sqrt{2})$. A second-order kernel whose characteristic function has a compact and symmetric support was adopted for the former case while a Cauchy kernel was considered for the latter. The energy lattice/subregions and hyperparameters were set as in Simulation 1. I ran five replications under each setting.
+and $\mathbf{x} = (x(1),x(2))$. The distribution contains nine important modes where the center one has the largest probability mass and the four on the corners have the smallest. I considered two setups to deal with the stochastic gradient noise by assuming (i) $\epsilon_k \overset{i.i.d}{\sim} N(0, 0.32^2)$ or (ii) $\epsilon_k \overset{i.i.d}{\sim} Laplace(0.32/\sqrt{2})$. A second-order kernel whose characteristic function has a compact and symmetric support was adopted for the former case while a Cauchy kernel was considered for the latter. The energy lattice/subregions and hyperparameters were set as in Simulation 1. I ran five replications under each setting.
 
 (Setting i）
+The figure below gives the sampling history and density estimates across iterations based on the fifth replication under setting (i) with super smooth normal stochastic gradient noise.
 
+<!--![Normal_1](https://github.com/roxiesun/CCSGLD/blob/main/images/Rep5_Nor2ndKStepsize10Sigma032n100.gif)-->
+<img src="/images/Rep5_Nor2ndKStepsize10Sigma032n100" width="90%" height="90%"/>
 
 (Setting ii)
 
-The figure below gives the sampling history and density estimates across iterations based on the first replication under setting (ii) with Laplace stochastic gradient noise.
+The figure below gives the sampling history and density estimates across iterations based on the first replication under setting (ii) with ordinal smooth Laplace stochastic gradient noise.
 
 <!--![Laplace_1](https://github.com/roxiesun/CCSGLD/blob/main/images/Rep1_LapCauStepsize10Sigma032n100.gif)-->
 <img src="/images/Rep1_LapCauStepsize10Sigma032n100.gif" width="90%" height="90%"/>
 
-The figure below gives the contour plot of the true target sampling distribution and those of samples produced by CSGLD/CCSGLD based on the first replication under setting (ii) with Laplace stochastic gradient noise.
+The figure below gives the contour plot of the true target sampling distribution and those of samples produced by CSGLD/CCSGLD based on the first replication under setting (ii) with ordinal smooth Laplace stochastic gradient noise.
 
 <!--![Laplace_1_contour](https://github.com/roxiesun/CCSGLD/blob/main/images/Rep1_Contour_LapCauStep10Sig032n100.png)-->
 <img src="/images/Rep1_Contour_LapCauStep10Sig032n100.png" width="90%" height="90%"/>
